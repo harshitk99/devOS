@@ -52,6 +52,7 @@ class AuditEventType(StrEnum):
     EXECUTION_STARTED = "execution_started"
     EXECUTION_FINISHED = "execution_finished"
     VERIFICATION_COMPLETED = "verification_completed"
+    FILE_EDITED = "file_edited"
     ROLLBACK_PERFORMED = "rollback_performed"
 
 

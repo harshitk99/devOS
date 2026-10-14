@@ -69,7 +69,9 @@ python scripts/dev.py                          # Postgres + backend + UI, Ctrl+C
 python scripts/inject_failure.py <mode>        # missing-env | missing-dependency | port-conflict | db-down |
                                                # db-auth | db-schema | combo | crash | unfixable ; --reset = healthy
 python scripts/run_scenarios.py [names…]       # end-to-end through the real API + Docker, checks the app works after
-backend/.venv/Scripts/python -m pip install -e cli   # once; then in a project folder: devos doctor | fix | status | audit
+backend/.venv/Scripts/python -m pip install -e cli   # once; then in a project folder: devos doctor | fix | up | status | audit
+                                               # `devos up`: diagnose -> plan -> run -> verify, looped until healthy or stuck;
+                                               # still asks approval per round whenever a step needs it (unless --yes)
                                                # (needs the backend running: python scripts/dev.py; DEVOS_API overrides the URL)
 cd backend && .venv/Scripts/python -m pytest   # ~245 tests; needs DevOS's Postgres for the DB-backed ones
 cd frontend && npm run build                   # type-check + build

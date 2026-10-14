@@ -57,6 +57,11 @@ class FileOut(BaseModel):
     content: str
 
 
+class FileWriteIn(BaseModel):
+    path: str
+    content: str
+
+
 class DiffLine(BaseModel):
     op: str  # "same" | "add" | "del"
     text: str

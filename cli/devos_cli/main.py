@@ -131,6 +131,81 @@ def audit(
 
 @app.command()
 @_guard
+def up(
+    path: PathOpt = Path("."),
+    yes: Annotated[bool, typer.Option("--yes", "-y", help="Skip the approval question whenever a step needs one (the plan is still shown).")] = False,
+    max_rounds: Annotated[int, typer.Option("--max-rounds", help="Safety cap on diagnose-fix-verify cycles.")] = 5,
+) -> None:
+    """Diagnose, fix, and verify in a loop until the project is healthy (or DevOS can't go further).
+
+    Each round plans and runs every fix the Doctor can currently see in one shot; the loop exists
+    for problems a fix only uncovers afterwards (e.g. starting the database reveals a missing table).
+    Approval is still asked for whenever a step needs it — this never silently auto-approves risk."""
+    api, project = _open(path)
+    ui.banner(project)
+    previous_fixable: set[str] | None = None
+
+    for round_num in range(1, max_rounds + 1):
+        with ui.console.status("[dim]checking the project…[/dim]", spinner="dots"):
+            findings = api.diagnose(project["id"])
+
+        if not findings:
+            ui.console.print("\n[bold green]✓ Healthy[/bold green]  devos up finished.\n")
+            return
+
+        ui.console.print(f"\n[bold]round {round_num}[/bold] · {len(findings)} problem(s)\n")
+        ui.findings_table(findings)
+        ui.console.print()
+
+        fixable = {f["check"] for f in findings if f["fix_available"]}
+        if not fixable:
+            ui.note("remaining problem(s) have no automatic fix; stopping here")
+            raise typer.Exit(1)
+        if fixable == previous_fixable:
+            ui.note("the same problem(s) came back after a fix attempt; stopping to avoid looping")
+            raise typer.Exit(1)
+        previous_fixable = fixable
+
+        plan = api.generate_plan(project["id"])
+        ui.plan_view(plan, api.preview(plan["id"]))
+
+        if any(a["decision"] == "require_approval" for a in plan["actions"]):
+            if not yes and not typer.confirm("This step needs approval. Approve and run it?", default=False):
+                api.reject(plan["id"])
+                ui.note("plan rejected; stopping")
+                raise typer.Exit(1)
+            api.approve(plan["id"])
+
+        execution = api.execute(plan["id"])
+        ui.console.print()
+        seen = 0
+        with ui.console.status("[dim]running…[/dim]", spinner="dots"):
+            while True:
+                time.sleep(POLL_S)
+                current = api.execution(execution["id"])
+                for entry in current["log"][seen:]:
+                    ui.log_line(entry)
+                seen = len(current["log"])
+                plan = api.plan(plan["id"])
+                if plan["status"] != "executing":
+                    break
+        ui.console.print()
+
+        verifications = api.verifications(execution["id"])
+        latest = verifications[-1] if verifications else None
+        ui.verdict_panel(latest, plan["status"])
+        verdict = latest["verdict"] if latest else None
+        if verdict not in ("VERIFIED", "PARTIALLY VERIFIED"):
+            ui.note("verification didn't succeed; stopping here (see `devos audit` for detail)")
+            raise typer.Exit(1)
+        ui.console.print()
+
+    ui.note(f"stopped after {max_rounds} round(s) without a clean diagnosis; see `devos doctor`")
+    raise typer.Exit(1)
+
+
+@app.command()
+@_guard
 def fix(
     path: PathOpt = Path("."),
     yes: Annotated[bool, typer.Option("--yes", "-y", help="Skip the approval question (the plan is still shown).")] = False,

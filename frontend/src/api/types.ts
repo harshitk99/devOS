@@ -77,6 +77,11 @@ export interface FileContent {
   content: string;
 }
 
+export interface FileWriteIn {
+  path: string;
+  content: string;
+}
+
 export interface DiffLine {
   op: "same" | "add" | "del";
   text: string;

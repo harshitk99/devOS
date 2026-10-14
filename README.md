@@ -8,6 +8,7 @@ Self-healing AI development environment. See [`CLAUDE.md`](CLAUDE.md) for the di
 |---|---|
 | `backend/` | DevOS backend — Python + FastAPI. One module per component under `app/services/`. |
 | `frontend/` | DevOS web UI — React + TypeScript (Vite). |
+| `cli/` | The `devos` terminal client (`doctor` / `fix` / `up` / `status` / `audit`) — talks to the same REST API as the UI. |
 | `demo-app/` | The breakable React + Node + PostgreSQL project DevOS diagnoses (`backend/` has its own compose file and `db/schema.sql`). **Not** part of DevOS's own backend. |
 | `sandbox/` | Docker sandbox image (`Dockerfile`) and the fixed action dispatcher (`runner.js`). |
 | `docs/` | Synopsis and BRD/TRD. |
@@ -45,35 +46,87 @@ npm install && npm run dev                       # http://localhost:5173
 
 The first sandbox run pulls `node:20-alpine` and builds the `devos-sandbox` image (needs network once).
 
-## Try it
+## Try it (step by step)
 
-```bash
-python scripts/inject_failure.py missing-env     # DATABASE_URL disappears from demo-app/backend/.env
-```
-
-Open http://localhost:5173, paste the absolute path to `demo-app/backend`, then
-**Import & diagnose → Generate recovery plan → Approve & run in sandbox**.
-DevOS finds the missing variable, proposes a `set_env_var` action (medium risk, needs your approval),
-applies it inside a resource-limited, network-less Docker container, restarts the app there,
-checks `/health`, and reports a verdict.
+1. **Break the demo app on purpose:**
+   ```bash
+   python scripts/inject_failure.py missing-env     # DATABASE_URL disappears from demo-app/backend/.env
+   ```
+2. Open **http://localhost:5173**.
+3. Paste the absolute path to `demo-app/backend` into the path field and click **Import & diagnose**.
+4. Go to the **Findings** tab — you'll see the missing `DATABASE_URL` listed as the problem.
+5. Go to **Plan**, read the one proposed step, and click **Approve & run in sandbox**.
+6. Watch the **Run** tab: DevOS sets the variable, starts the app inside a resource-limited,
+   network-less Docker container, checks `/health`, and shows a verdict (`VERIFIED`).
 
 The UI has three panes:
 
 - **Files (left):** browse the imported project. Files involved in a problem get a red dot, files a plan
-  would change get an amber one. `.env` values are masked until you click *Reveal values*.
+  would change get an amber one. `.env` values are masked until you click *Reveal values*. You can also
+  click **Edit** on any non-secret file to change it directly and **Save** — a plain, audited file save,
+  not an AI action (see "Editing a file directly" below).
 - **Viewer (centre):** the selected file, or the **Proposed changes** tab: a before/after diff of exactly what
   each plan step would write. Clicking a finding jumps to the file and line it is about.
 - **Details (right):** *Overview* (project map + env checklist), *Findings* (ranked by priority = severity ×
   confidence), *Plan* (steps with risk and approval status), *Run* (live sandbox log, verdict, re-verify,
   roll back) and *Audit* (every step, with details). The stage bar at the top is clickable.
 
-Watch a failed fix get rolled back automatically:
+**Watch a failed fix get rolled back automatically:**
 
 ```bash
 python scripts/inject_failure.py unfixable       # the .env.example default is invalid too
 python scripts/run_demo.py                       # -> verdict FAILED, .env restored
 python scripts/inject_failure.py --reset         # healthy demo app again
 ```
+
+**Other failures to try** (each one undoes the last): `missing-dependency`, `port-conflict`, `db-down`,
+`db-auth`, `db-schema`, `combo` (all three at once), `crash` (diagnosis only, no fix). Full list:
+`python scripts/inject_failure.py --help`.
+
+## Try it from the terminal instead
+
+Once the backend is running (`python scripts/dev.py`), install the CLI once and point it at any project folder:
+
+```bash
+backend/.venv/Scripts/python -m pip install -e cli      # Windows; venv/bin/pip on Linux/macOS
+cd demo-app/backend
+devos doctor      # list what's wrong, most urgent first
+devos fix         # plan a repair, ask for approval, run it, verify it
+devos up          # the whole loop on repeat: diagnose -> fix -> verify, until healthy
+devos status      # one-screen summary
+devos audit       # everything DevOS has done to this project
+```
+
+`devos up --yes` skips the confirmation prompt (the plan is still printed first); it still stops and asks
+whenever a step is genuinely risky (installing packages, running a migration) unless you pass `--yes`.
+
+## Editing a file directly
+
+Click **Edit** in the Files pane's file viewer, change the text, click **Save**. This writes straight to
+disk and logs a `file_edited` audit event — it is **not** an AI action: no plan, no sandbox, no approval
+step, because it's just you editing your own project, the same as any other editor. Secret `.env` files
+can't be edited this way (their displayed values may be masked); use a plan's `set_env_var` step for those
+instead.
+
+## Testing
+
+```bash
+cd backend && .venv/Scripts/python -m pytest -q    # ~287 tests, 1 skipped (needs admin on Windows)
+```
+
+Needs DevOS's own Postgres running first (`docker compose up -d db`, or just `python scripts/dev.py`
+once) — the DB-backed tests connect to it directly. Docker-backed tests skip themselves if the Docker
+daemon isn't running.
+
+```bash
+cd frontend && npm run build                       # type-checks and builds the UI
+python scripts/run_scenarios.py                    # end-to-end, through the real API + real Docker:
+                                                     # imports the demo app, breaks it 9 different ways,
+                                                     # fixes each one, and checks the app actually works after
+```
+
+`run_scenarios.py` is the closest thing to a full regression test: it drives the real pipeline (no
+mocks), so it needs Docker and the DevOS Postgres container up, and takes a few minutes.
 
 ## What is implemented
 

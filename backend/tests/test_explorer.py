@@ -128,6 +128,51 @@ def test_preview_does_not_touch_disk(demo_project):
     assert (demo_project / ".env").read_text() == before
 
 
+# --- manual edit (the developer saving a file directly, not an AI action) ---------------------
+
+
+def test_write_file_saves_and_returns_a_fresh_read(demo_project):
+    (demo_project / "src.js").write_text("old")
+    result = explorer.write_file(demo_project, "src.js", "new content")
+    assert result["content"] == "new content" and (demo_project / "src.js").read_text() == "new content"
+
+
+def test_write_file_refuses_a_path_outside_the_project(demo_project):
+    with pytest.raises(explorer.ExplorerError):
+        explorer.write_file(demo_project, "../secret", "x")
+
+
+def test_write_file_refuses_a_missing_file(demo_project):
+    with pytest.raises(FileNotFoundError):
+        explorer.write_file(demo_project, "nope.txt", "x")
+
+
+def test_write_file_refuses_secret_env_files(demo_project):
+    before = (demo_project / ".env").read_text()
+    with pytest.raises(explorer.ExplorerError, match="Set env var"):
+        explorer.write_file(demo_project, ".env", "PORT=9999\n")
+    assert (demo_project / ".env").read_text() == before  # refused before touching disk
+
+
+def test_write_file_allows_the_env_template(demo_project):
+    result = explorer.write_file(demo_project, ".env.example", "PORT=3100\n")
+    assert not result["masked"] and result["content"] == "PORT=3100\n"
+
+
+def test_write_file_refuses_binary_content(demo_project):
+    (demo_project / "img.bin").write_bytes(b"\x89PNG\x00\x01\x02")
+    with pytest.raises(explorer.ExplorerError, match="binary"):
+        explorer.write_file(demo_project, "img.bin", "not an image anymore")
+
+
+def test_write_file_refuses_content_over_the_size_cap(demo_project, monkeypatch):
+    monkeypatch.setattr(explorer, "MAX_BYTES", 10)
+    (demo_project / "src.js").write_text("short")
+    with pytest.raises(explorer.ExplorerError, match="too large"):
+        explorer.write_file(demo_project, "src.js", "x" * 20)
+    assert (demo_project / "src.js").read_text() == "short"  # refused before touching disk
+
+
 @pytest.mark.skipif(shutil.which("node") is None, reason="node not installed")
 @pytest.mark.parametrize(
     "existing",

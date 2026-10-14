@@ -89,6 +89,18 @@ def test_file_endpoints_and_plan_preview(client, demo_project):
     assert client.get(f"/api/projects/{pid}/files/content", params={"path": "../x"}).status_code == 400
     assert client.get(f"/api/projects/{pid}/files/content", params={"path": "nope.js"}).status_code == 404
 
+    (demo_project / "notes.txt").write_text("old")
+    saved = client.put(f"/api/projects/{pid}/files/content", json={"path": "notes.txt", "content": "edited"})
+    assert saved.status_code == 200 and saved.json()["content"] == "edited"
+    assert (demo_project / "notes.txt").read_text() == "edited"
+    events = client.get(f"/api/projects/{pid}/audit").json()
+    assert any(e["type"] == "file_edited" and e["payload"]["path"] == "notes.txt" for e in events)
+
+    refused = client.put(f"/api/projects/{pid}/files/content", json={"path": ".env", "content": "PORT=1\n"})
+    assert refused.status_code == 400
+    missing = client.put(f"/api/projects/{pid}/files/content", json={"path": "nope.js", "content": "x"})
+    assert missing.status_code == 404
+
     client.post(f"/api/projects/{pid}/diagnose")
     plan = client.post(f"/api/projects/{pid}/plans").json()
     [item] = client.get(f"/api/plans/{plan['id']}/preview").json()

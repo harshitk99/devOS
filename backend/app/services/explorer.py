@@ -3,8 +3,12 @@ what a plan would change.
 
 This is an HTTP-reachable file reader, so every path is confined to the project root (no absolute
 paths, no `..`, no symlink escapes), heavy/irrelevant directories are never listed, files are size
-capped, binaries are not returned, and secret-bearing .env files are masked unless the caller
-explicitly reveals them. Nothing here writes to disk."""
+capped, and binaries are not returned. The one exception is `write_file` below: a direct save of a
+file the developer is editing in the UI. This is NOT the AI Planner's (unimplemented) `write_file`
+ActionType and never runs through the sandbox, policy engine or an Execution/Verification/rollback
+cycle — it is the human acting on their own project files, same as editing them in any other editor,
+confined the same way reads are and kept out of secret-bearing .env files so a masked value already
+on screen can never be saved back over the real one."""
 
 import difflib
 import os
@@ -91,6 +95,25 @@ def read_file(root: Path, rel: str, reveal: bool = False) -> dict[str, Any]:
     if masked:
         text = mask_env(text)
     return {"path": rel, "size": size, "binary": False, "truncated": truncated, "masked": masked, "content": text}
+
+
+def write_file(root: Path, rel: str, content: str) -> dict[str, Any]:
+    """Save new content for a file the developer is editing. Refuses to touch a file it hasn't
+    already read as editable: binaries, and secret-bearing .env files (whose displayed content may
+    be masked, and whose values already have a safer, typed path: a plan's `set_env_var` step)."""
+    path = resolve_within(root, rel)
+    if not path.is_file():
+        raise FileNotFoundError(rel)
+    if is_secret_env(path.name):
+        raise ExplorerError("secret .env files can't be edited here; use a plan's 'Set env var' step instead")
+    with path.open("rb") as f:
+        if b"\x00" in f.read(8192):
+            raise ExplorerError("binary files can't be edited here")
+    encoded = content.encode("utf-8")
+    if len(encoded) > MAX_BYTES:
+        raise ExplorerError(f"content is too large to save ({len(encoded)} bytes, max {MAX_BYTES})")
+    path.write_bytes(encoded)
+    return read_file(root, rel)
 
 
 # --- change preview ---------------------------------------------------------------------------

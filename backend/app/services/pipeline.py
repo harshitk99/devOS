@@ -26,7 +26,7 @@ from app.domain.enums import (
 )
 from app.models import Diagnostic, Execution, Project, RecoveryPlan, Verification
 from app.services import (
-    approval, audit, checkup, doctor, executor, importer, planner, rollback, verification,
+    approval, audit, checkup, doctor, executor, explorer, importer, planner, rollback, verification,
 )
 from app.services.events import bus
 
@@ -72,6 +72,16 @@ def import_project(session: Session, path: str) -> Project:
     )
     session.commit()
     return project
+
+
+# --- Files (the developer editing their own project directly, outside the AI pipeline) --------
+
+
+def edit_file(session: Session, project: Project, path: str, content: str) -> dict[str, Any]:
+    result = explorer.write_file(Path(project.path), path, content)
+    audit.record(session, project.id, AuditEventType.FILE_EDITED, "user", {"path": path})
+    session.commit()
+    return result
 
 
 # --- Diagnose ---------------------------------------------------------------------------------
