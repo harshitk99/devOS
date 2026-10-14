@@ -1,0 +1,10 @@
+{
+  "name": "devos",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Root convenience scripts. The real projects live in backend/ and frontend/.",
+  "scripts": {
+    "dev": "python scripts/dev.py",
+    "dev:stop-db": "python scripts/dev.py --stop-db"
+  }
+}

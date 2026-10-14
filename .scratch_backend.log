@@ -1,0 +1,153 @@
+INFO:     Started server process [25776]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:61357 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+Direct use of automatic function calling (AFC) in Models.generate_content is not recommended. Instead, we recommend to use AFC in Chat.send_message. Similarly, direct use of AFC in Models.generate_content_stream is not recommended. Instead, we recommend to use AFC in Chat.send_message_stream.
+LLM plan review unavailable, using the rule plan as is: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+LLM explanations unavailable, using rule text: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/plans/439c96df-8106-4dc1-8580-7452ad880259/approve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/plans/439c96df-8106-4dc1-8580-7452ad880259/execute HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/439c96df-8106-4dc1-8580-7452ad880259 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/e27bb8bd-487f-49b2-b3fc-a8fbffd97e38/verifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/e27bb8bd-487f-49b2-b3fc-a8fbffd97e38 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+LLM plan review unavailable, using the rule plan as is: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+LLM explanations unavailable, using rule text: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2/approve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2/execute HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/f212c88b-075d-49aa-82ac-cb4a0ff5e9f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/ae70ab96-9f02-48a0-8eb4-1e5e20f82a8e/verifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/ae70ab96-9f02-48a0-8eb4-1e5e20f82a8e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+LLM plan review unavailable, using the rule plan as is: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+LLM explanations unavailable, using rule text: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/plans/271a2e02-fece-458a-a8c3-747948431015/approve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/plans/271a2e02-fece-458a-a8c3-747948431015/execute HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61362 - "GET /api/plans/271a2e02-fece-458a-a8c3-747948431015 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/271a2e02-fece-458a-a8c3-747948431015 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/271a2e02-fece-458a-a8c3-747948431015 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/271a2e02-fece-458a-a8c3-747948431015 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/271a2e02-fece-458a-a8c3-747948431015 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/271a2e02-fece-458a-a8c3-747948431015 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/271a2e02-fece-458a-a8c3-747948431015 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/e7fdb492-4af0-446f-b05e-bf0397fa4a77/verifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/e7fdb492-4af0-446f-b05e-bf0397fa4a77 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+LLM plan review unavailable, using the rule plan as is: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+LLM explanations unavailable, using rule text: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b/approve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b/execute HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/7e77697f-1fa3-47d6-beaf-2aa1ede5e95b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/b3b0b6c5-814c-4f3d-b405-40fe1c95bc50/verifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/b3b0b6c5-814c-4f3d-b405-40fe1c95bc50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+LLM plan review unavailable, using the rule plan as is: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+LLM explanations unavailable, using rule text: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/plans/095fe7e7-3074-4895-aef1-1339511924a6/approve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/plans/095fe7e7-3074-4895-aef1-1339511924a6/execute HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61362 - "GET /api/plans/095fe7e7-3074-4895-aef1-1339511924a6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/095fe7e7-3074-4895-aef1-1339511924a6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/095fe7e7-3074-4895-aef1-1339511924a6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/095fe7e7-3074-4895-aef1-1339511924a6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/095fe7e7-3074-4895-aef1-1339511924a6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/095fe7e7-3074-4895-aef1-1339511924a6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/095fe7e7-3074-4895-aef1-1339511924a6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/c7953ab4-38fd-4bcf-88f9-146e51e67e34/verifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/c7953ab4-38fd-4bcf-88f9-146e51e67e34 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+LLM plan review unavailable, using the rule plan as is: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+LLM explanations unavailable, using rule text: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/plans/633ef3a3-83f3-468c-8b9f-8368e637ed89/approve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/plans/633ef3a3-83f3-468c-8b9f-8368e637ed89/execute HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61362 - "GET /api/plans/633ef3a3-83f3-468c-8b9f-8368e637ed89 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/633ef3a3-83f3-468c-8b9f-8368e637ed89 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/633ef3a3-83f3-468c-8b9f-8368e637ed89 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/633ef3a3-83f3-468c-8b9f-8368e637ed89 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/633ef3a3-83f3-468c-8b9f-8368e637ed89 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/73201693-7942-4937-aeeb-478d50a563f6/verifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/73201693-7942-4937-aeeb-478d50a563f6 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+LLM plan review unavailable, using the rule plan as is: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+LLM explanations unavailable, using rule text: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5/approve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5/execute HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/fde35cb5-1764-4c57-9763-2ddc9c2615d5 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/38511e6a-b8e2-41f7-b503-a42da371f6f4/verifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/38511e6a-b8e2-41f7-b503-a42da371f6f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 409 Conflict
+INFO:     127.0.0.1:61362 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/diagnose HTTP/1.1" 200 OK
+LLM plan review unavailable, using the rule plan as is: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+LLM explanations unavailable, using rule text: ClientError: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:61362 - "POST /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/plans HTTP/1.1" 201 Created
+INFO:     127.0.0.1:61362 - "POST /api/plans/2e274482-344b-4e77-8373-fbb5ce68512c/approve HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "POST /api/plans/2e274482-344b-4e77-8373-fbb5ce68512c/execute HTTP/1.1" 202 Accepted
+INFO:     127.0.0.1:61362 - "GET /api/plans/2e274482-344b-4e77-8373-fbb5ce68512c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/2e274482-344b-4e77-8373-fbb5ce68512c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/plans/2e274482-344b-4e77-8373-fbb5ce68512c HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/5e60ef0b-4bf1-4bcf-aa4c-d55deafb1853/verifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61362 - "GET /api/executions/5e60ef0b-4bf1-4bcf-aa4c-d55deafb1853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57506 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57508 - "GET /api/projects/9a605a3e-daa7-4bc6-8be4-67ca53b928dd/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57510 - "GET /api/projects/22150745-a5d0-4d3f-a035-4845ca10feb5/audit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57513 - "GET /api/projects/42d87817-3736-4f68-9ee9-46e2ce1ee25f/audit HTTP/1.1" 200 OK

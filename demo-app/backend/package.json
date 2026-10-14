@@ -1,0 +1,15 @@
+{
+  "name": "devos-demo-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Intentionally-breakable Node backend used as a DevOS target",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node --check server.js && node --check config.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}

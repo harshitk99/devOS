@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/api/client.ts","./src/api/types.ts","./src/components/diffview.tsx","./src/components/filetree.tsx","./src/components/fileviewer.tsx","./src/components/livepanel.tsx","./src/components/panels.tsx","./src/components/stepper.tsx","./src/hooks/useprojectstream.ts","./src/hooks/useworkspace.ts","./vite.config.ts"],"version":"5.9.3"}

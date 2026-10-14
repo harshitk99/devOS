@@ -1,0 +1,16 @@
+# Postgres for the demo app (not DevOS's own database). Port 5433 avoids clashing with DevOS's 5432.
+name: devos-demo
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo
+    ports:
+      - "5433:5432"
+    volumes:
+      - demo_pg:/var/lib/postgresql/data
+
+volumes:
+  demo_pg:
