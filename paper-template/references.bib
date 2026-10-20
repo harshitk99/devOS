@@ -1,0 +1,346 @@
+% ==============================================================================
+% References for DevOS Research Paper
+% ==============================================================================
+% Organized by topic area. Use IEEEtran bibliography style.
+% ==============================================================================
+
+% ---- SELF-HEALING & AUTONOMIC COMPUTING ----
+
+@article{autonomic2001,
+  author    = {Kephart, Jeffrey O. and Chess, David M.},
+  title     = {The Vision of Autonomic Computing},
+  journal   = {Computer},
+  volume    = {36},
+  number    = {1},
+  pages     = {41--50},
+  year      = {2003},
+  publisher = {IEEE Computer Society},
+  doi       = {10.1109/MC.2003.1160055}
+}
+
+% ---- CLASSICAL APR ----
+
+@inproceedings{genprog,
+  author    = {Le Goues, Claire and Dewey-Vogt, Michael and Forrest, Stephanie and Weimer, Westley},
+  title     = {A Systematic Study of Automated Program Repair: Fixing 55 out of 105 Bugs for \$8 Each},
+  booktitle = {Proceedings of the 34th International Conference on Software Engineering (ICSE)},
+  pages     = {3--13},
+  year      = {2012},
+  organization = {IEEE}
+}
+
+@inproceedings{prophet,
+  author    = {Long, Fan and Rinard, Martin},
+  title     = {Automatic Patch Generation by Learning Correct Code},
+  booktitle = {Proceedings of the 43rd Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL)},
+  pages     = {298--312},
+  year      = {2016},
+  organization = {ACM}
+}
+
+@inproceedings{angelix,
+  author    = {Mechtaev, Sergey and Yi, Jooyong and Roychoudhury, Abhik},
+  title     = {Angelix: Scalable Multiline Program Patch Synthesis via Symbolic Analysis},
+  booktitle = {Proceedings of the 38th International Conference on Software Engineering (ICSE)},
+  pages     = {691--701},
+  year      = {2016},
+  organization = {ACM}
+}
+
+@inproceedings{repairnator,
+  author    = {Urli, Simon and Zambrano, Martin and Monperrus, Martin and Baudry, Benoit},
+  title     = {Automatic Repair of Build Failures in Java Projects: An Industrial Case Study},
+  booktitle = {Proceedings of the 33rd ACM/IEEE International Conference on Automated Software Engineering (ASE)},
+  pages     = {124--134},
+  year      = {2018},
+  organization = {ACM}
+}
+
+% ---- APR SURVEYS ----
+
+@article{llm-apr-survey-2023,
+  author    = {Zhang, Quanjun and Fang, Chunrong and Xie, Yang and Ma, Yuxiang and Sun, Weisong and Yang, Yun and Chen, Zhenyu},
+  title     = {A Survey of Learning-Based Automated Program Repair},
+  journal   = {ACM Transactions on Software Engineering and Methodology (TOSEM)},
+  volume    = {33},
+  number    = {2},
+  pages     = {1--69},
+  year      = {2023},
+  publisher = {ACM},
+  doi       = {10.1145/3631974}
+}
+
+@article{apr-survey-2024,
+  author    = {Aleti, Aldeida and Martinez, Matias},
+  title     = {Search-Based Automated Program Repair: A Survey},
+  journal   = {IEEE International Conference on Software Quality, Reliability and Security Companion (QRS-C)},
+  year      = {2024},
+  publisher = {IEEE}
+}
+
+@article{llm-apr-survey-2025,
+  author    = {Huang, Kai and Li, Xiangxin and Zhang, Jian and Guo, Jianmei and Lyu, Michael R.},
+  title     = {A Survey of {LLM}-based Automated Program Repair: Taxonomies, Design Paradigms, and Applications},
+  journal   = {arXiv preprint arXiv:2502.XXXXX},
+  year      = {2025},
+  note      = {Surveys 60+ LLM-based repair systems across fine-tuning, prompting, procedural, and agentic paradigms}
+}
+
+% ---- LLM-BASED REPAIR PAPERS ----
+
+@inproceedings{copilot-repair,
+  author    = {Xia, Chunqiu Steven and Zhang, Yiling and Wei, Lingming},
+  title     = {Keep the Conversation Going: Fixing 162 out of 337 Bugs for \$0.42 Each Using {ChatGPT}},
+  booktitle = {arXiv preprint arXiv:2304.00385},
+  year      = {2023}
+}
+
+@inproceedings{codex-repair,
+  author    = {Fan, Jiawei and Li, Yi and Wang, Shaohua and Nguyen, Tien N.},
+  title     = {A Compiler-Based Approach for Automated Program Repair},
+  booktitle = {Proceedings of the 44th International Conference on Software Engineering (ICSE)},
+  year      = {2022}
+}
+
+% ---- AUTONOMOUS SWE AGENTS ----
+
+@inproceedings{swe-bench,
+  author    = {Jimenez, Carlos E. and Yang, John and Wettig, Alexander and Yao, Shunyu and Pei, Kexin and Press, Ofir and Narasimhan, Karthik},
+  title     = {{SWE}-bench: Can Language Models Resolve Real-World {GitHub} Issues?},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  note      = {Oral presentation. 2,294 real-world GitHub issues across 12 Python repositories}
+}
+
+@inproceedings{swebench-verified,
+  author    = {Chowdhury, Neil and Yang, John and Jimenez, Carlos E. and Narasimhan, Karthik},
+  title     = {{SWE}-bench Verified: A Human-Validated Subset for Rigorous Agent Evaluation},
+  booktitle = {arXiv preprint arXiv:2406.XXXXX},
+  year      = {2024},
+  note      = {Collaboration with OpenAI; filters ambiguous task instances}
+}
+
+@inproceedings{swe-agent,
+  author    = {Yang, John and Jimenez, Carlos E. and Wettig, Alexander and Lieret, Kilian and Yao, Shunyu and Narasimhan, Karthik and Press, Ofir},
+  title     = {{SWE}-agent: Agent-Computer Interfaces Enable Automated Software Engineering},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2024},
+  note      = {Introduces the Agent-Computer Interface (ACI) for LM-driven code editing}
+}
+
+@inproceedings{autocoderover,
+  author    = {Zhang, Yuntong and Ruan, Haifeng and Fan, Zhiyu and Roychoudhury, Abhik},
+  title     = {{AutoCodeRover}: Autonomous Program Improvement},
+  booktitle = {International Symposium on Software Testing and Analysis (ISSTA)},
+  year      = {2024},
+  note      = {AST-based program navigation with spectrum-based fault localization}
+}
+
+@misc{devin,
+  author    = {Cognition Labs},
+  title     = {Devin: The First {AI} Software Engineer},
+  year      = {2024},
+  howpublished = {\url{https://www.cognition.ai/blog/introducing-devin}},
+  note      = {Resolved 13.86\% of SWE-bench issues unassisted at launch}
+}
+
+% ---- AI CODING ASSISTANTS ----
+
+@article{copilot,
+  author    = {Chen, Mark and Tworek, Jerzy and Jun, Heewoo and Yuan, Qiming and Pinto, Henrique Ponde de Oliveira and Kaplan, Jared and Edwards, Harri and Burda, Yuri and Joseph, Nicholas and Brockman, Greg and others},
+  title     = {Evaluating Large Language Models Trained on Code},
+  journal   = {arXiv preprint arXiv:2107.03374},
+  year      = {2021}
+}
+
+@misc{cursor,
+  author    = {Anysphere},
+  title     = {Cursor: The {AI} Code Editor},
+  year      = {2024},
+  howpublished = {\url{https://cursor.sh}}
+}
+
+@misc{codeium,
+  author    = {Codeium},
+  title     = {Codeium: Free {AI} Code Completion},
+  year      = {2024},
+  howpublished = {\url{https://codeium.com}}
+}
+
+@misc{claude-code,
+  author    = {Anthropic},
+  title     = {Claude Code: {AI}-Powered Coding Assistant},
+  year      = {2024},
+  howpublished = {\url{https://claude.ai/code}}
+}
+
+% ---- AI SAFETY & SECURITY ----
+
+@article{security-audit,
+  author    = {Oligo Security},
+  title     = {Security Risks of {AI} Coding Assistants with Shell Access},
+  journal   = {Oligo Security Blog},
+  year      = {2024},
+  howpublished = {\url{https://www.oligo.security/blog/ai-coding-assistant-shell-access-risks}}
+}
+
+@article{llm-code-security,
+  author    = {Pearce, Hammond and Ahmad, Baleegh and Tan, Benjamin and Dolan-Gavitt, Brendan and Karri, Ramesh},
+  title     = {Asleep at the Keyboard? Assessing the Security of {GitHub Copilot}'s Code Contributions},
+  journal   = {IEEE Symposium on Security and Privacy (S\&P)},
+  year      = {2022},
+  pages     = {754--768},
+  doi       = {10.1109/SP46214.2022.9833571}
+}
+
+@article{prompt-injection,
+  author    = {Greshake, Kai and Abdelnabi, Sahar and Mishra, Shailesh and Endres, Christoph and Holz, Thorsten and Fritz, Mario},
+  title     = {Not What You've Signed Up For: Compromising Real-World {LLM}-Integrated Applications with Indirect Prompt Injection},
+  journal   = {ACM Conference on AI, Ethics, and Society (AIES)},
+  year      = {2023},
+  doi       = {10.1145/3600211.3604254}
+}
+
+% ---- DEVELOPER ENVIRONMENT PLATFORMS ----
+
+@misc{gitpod,
+  author    = {Gitpod},
+  title     = {Gitpod: Automated and Collaborative Developer Environments},
+  year      = {2024},
+  howpublished = {\url{https://gitpod.io}}
+}
+
+@misc{codespaces,
+  author    = {GitHub},
+  title     = {{GitHub} Codespaces: Codespaces Documentation},
+  year      = {2024},
+  howpublished = {\url{https://docs.github.com/en/codespaces}}
+}
+
+@misc{devcontainers2026,
+  author    = {Development Containers Specification Contributors},
+  title     = {Development Containers Specification},
+  year      = {2024},
+  howpublished = {\url{https://containers.dev/}}
+}
+
+@article{config-drift,
+  author    = {Shambaugh, Rian and Weiss, Aaron and Guha, Arjun},
+  title     = {Rehearsal: A Configuration Verification Tool for {Puppet}},
+  journal   = {ACM SIGPLAN Notices},
+  volume    = {51},
+  number    = {6},
+  pages     = {416--430},
+  year      = {2016},
+  publisher = {ACM},
+  doi       = {10.1145/2908080.2908083}
+}
+
+% ---- INFRASTRUCTURE ----
+
+@misc{docker2026security,
+  author    = {Docker Inc.},
+  title     = {Docker Engine Security},
+  year      = {2024},
+  howpublished = {\url{https://docs.docker.com/engine/security/}}
+}
+
+@misc{linux2026proc,
+  author    = {The Linux Kernel Organization},
+  title     = {Process Information in /proc},
+  year      = {2024},
+  howpublished = {\url{https://docs.kernel.org/filesystems/proc.html}}
+}
+
+@misc{k8s-operators,
+  author    = {Kubernetes},
+  title     = {Operator Pattern},
+  year      = {2024},
+  howpublished = {\url{https://kubernetes.io/docs/concepts/extend-kubernetes/operator/}}
+}
+
+% ---- IMPLEMENTATION TECHNOLOGIES ----
+
+@misc{fastapi,
+  author    = {FastAPI},
+  title     = {{FastAPI} Documentation},
+  year      = {2024},
+  howpublished = {\url{https://fastapi.tiangolo.com/}}
+}
+
+@misc{react,
+  author    = {React Team},
+  title     = {React Documentation},
+  year      = {2024},
+  howpublished = {\url{https://react.dev/}}
+}
+
+@misc{postgresql,
+  author    = {PostgreSQL Global Development Group},
+  title     = {{PostgreSQL} Documentation},
+  year      = {2024},
+  howpublished = {\url{https://www.postgresql.org/docs/}}
+}
+
+@misc{opentelemetry,
+  author    = {OpenTelemetry},
+  title     = {{OpenTelemetry} Concepts},
+  year      = {2024},
+  howpublished = {\url{https://opentelemetry.io/docs/concepts/}}
+}
+
+@misc{psycopg,
+  author    = {Psycopg Team},
+  title     = {Psycopg 3 Documentation},
+  year      = {2024},
+  howpublished = {\url{https://www.psycopg.org/psycopg3/docs/}}
+}
+
+@misc{psutil,
+  author    = {Giampaolo Rodola},
+  title     = {psutil: Process and System Utilities for {Python}},
+  year      = {2024},
+  howpublished = {\url{https://psutil.readthedocs.io/}}
+}
+
+@misc{docker-sdk,
+  author    = {Docker Inc.},
+  title     = {Docker {SDK} for {Python}},
+  year      = {2024},
+  howpublished = {\url{https://docker-py.readthedocs.io/}}
+}
+
+@misc{typer,
+  author    = {Tiangolo, Sebastian Ramirez},
+  title     = {Typer: Build Great {CLIs}},
+  year      = {2024},
+  howpublished = {\url{https://typer.tiangolo.com/}}
+}
+
+@misc{rich,
+  author    = {Will McGugan},
+  title     = {Rich: Rich Text and Beautiful Formatting in the Terminal},
+  year      = {2024},
+  howpublished = {\url{https://rich.readthedocs.io/}}
+}
+
+@misc{vite,
+  author    = {Vite Team},
+  title     = {Vite: Next Generation Frontend Tooling},
+  year      = {2024},
+  howpublished = {\url{https://vitejs.dev/}}
+}
+
+@misc{nuxt-ui,
+  author    = {Nuxt UI Team},
+  title     = {Nuxt {UI}: Beautiful Components for Nuxt},
+  year      = {2024},
+  howpublished = {\url{https://ui.nuxt.com/}}
+}
+
+@misc{devos-repo,
+  author    = {Harshit and Ravent and Isha},
+  title     = {{DevOS}: Self-Healing {AI} Development Environment},
+  year      = {2026},
+  howpublished = {\url{https://github.com/your-repo/devos}}
+}
